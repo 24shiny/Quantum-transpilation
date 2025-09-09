@@ -8,4 +8,6 @@
 ## 2. Quantum Transpiler comarison (comparison/compare_decomposition.ipynb)
 <div align="justify"> 
   <p align='center'><img src="img/comparison_table.png" width="400"/></p>
+  This code prints a table comparing the performance of different quantum transpilers. Specifically, Qiskit's transpiler across optimization levels 0 to 3, and PennyLane's default compilation   strategy. Note that the number of unitary gates drops to zero at optimization levels 2 and 3 due to unitary synthesis, which decomposes unitary gates into 1- or 2-qubit primitive gates.
+  Additionally, PennyLane's default compilation applies techniques such as commutation cancellation, inverse cancellation, rotation merging, and barrier removal and therefore does not alter any unitary gates.
 </div>

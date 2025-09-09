@@ -5,7 +5,7 @@
   Designed to transform KetGPT circuits—which consist of only eight predefined gates—this class cannot handle arbitrary gates by default. However, you can easily tailor it by adding Qiskit–PennyLane gate correspondences in the convert_to_qiskit() function. In addition, you can print the comparison table, compares the performance of Qiskit's and PennyLane's transpilers.
 </div>
 
-## 2. Quantum Transpiler comarison (comparison/compare_transpilation.ipynb and /compare_decomposition.ipynb)
+## 2. Quantum Transpiler comarison (comparison/compare_decomposition.ipynb)
 <div align="justify"> 
-  
+  <img src="img/comparison_table.png" width="400"/>
 </div>

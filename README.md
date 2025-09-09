@@ -7,5 +7,5 @@
 
 ## 2. Quantum Transpiler comarison (comparison/compare_decomposition.ipynb)
 <div align="justify"> 
-  <img src="img/comparison_table.png" width="400"/>
+  <p align='center'><img src="img/comparison_table.png" width="400"/></p>
 </div>

@@ -18,5 +18,5 @@
   <p align='center'>Fig. 1. Quantum circuit generate by KetGPT</p>
   <p align='center'><img src="img/graph_representation_of_circuits.png" width="500"/></p>
   <p align='center'>Fig. 2.Graph representation of the quantum circuits</p>
-  Quantum circuits are often transformed into graphs in quantum circuit optimization. I am currently developing an interface between PennyLane and NetworkX !👍
+  Quantum circuits are often transformed into graphs in quantum circuit optimization. I am currently developing an interface between PennyLane and NetworkX to apply graph algorithms to the circuits !👍
 </div>

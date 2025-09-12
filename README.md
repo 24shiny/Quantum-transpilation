@@ -1,6 +1,6 @@
-# Quantum Transpilation
+# Quantum-transpilation
 
-<img width="374" height="97" alt="image" src="https://github.com/user-attachments/assets/455ad336-3460-4f56-80c6-c58d15027307" /># Quantum-transpilation
+<img width="374" height="97" alt="image" src="https://github.com/user-attachments/assets/455ad336-3460-4f56-80c6-c58d15027307" />
 ## 1. PennyLane to Qiskit Converter (comparison/Penny_to_qiskit.py)
 <div align="justify"> 
   While PennyLane supports converting circuits from Qiskit to its own format, it does not currently offer a method for converting PennyLane circuits back to Qiskit. So I have made one myself!😊

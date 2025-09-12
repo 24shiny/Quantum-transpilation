@@ -45,7 +45,12 @@ class Penny_to_Graph():
             g_name_temp.append(g['name'])
         # gate color
         n = len(g_name_temp)
-        self.gate_colors = dict(zip(set(g_name_temp), self.color_generator(n)))
+        g_color_temp = ['#cc4c4c','#cc9c4c','#aacc4c','#4ccc5c','#4ccccc','#4c6ccc','#9c4ccc','#cc4ca2']
+        if n <= 8:
+            g_color_temp = g_color_temp[:n]
+        else: # greater than 8
+            g_color_temp = g_color_temp + self.color_generator(8-n)
+        self.gate_colors = dict(zip(set(g_name_temp), g_color_temp))
 
     def show_legend(self):
         _, ax = plt.subplots()

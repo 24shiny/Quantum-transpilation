@@ -23,7 +23,3 @@
   As a major example, Qiskit's transpiler converts quantum circuits to graphs, perform the Dijkstra search over them to replace known gate patterns with more efficient ones. Here I present a module to bridge PennyLane and NetworkX, which converts a quantum circuit in PennyLane to a graph object in NetworkX.
 </div><br>
 
-## 4. Unitary synthesis with community detection algorithms ()
-<div align="justify"> 
-  Currently working on it!
-</div><br>

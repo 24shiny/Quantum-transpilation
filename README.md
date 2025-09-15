@@ -16,9 +16,9 @@
 ## 3. Graph representation of quantum circuits (circuit_optimization/graph_representation/penny_to_graph.py)
 <div align="justify"> 
   <p align='center'><img src="img/original_circuits.png" width="600"/></p>
-  <p align='center'>Fig. 1. Quantum circuit generate by KetGPT</p>
+  <p align='center'>Fig. 2. Quantum circuit generate by KetGPT</p>
   <p align='center'><img src="img/graph_representation_of_circuits.png" width="500"/></p>
-  <p align='center'>Fig. 2.Graph representation of the quantum circuit</p>
+  <p align='center'>Fig. 3.Graph representation of the quantum circuit</p>
   Quantum circuit optimization aims to reduce the number of gates and the depth, while maintaing the fidelity. Once quantum circuits are represented as graphs, we can apply graph algorithms to them!
   As a major example, Qiskit's transpiler converts quantum circuits to graphs, perform the Dijkstra search over them to replace known gate patterns with more efficient ones. Here I present a module to bridge PennyLane and NetworkX, which converts a quantum circuit in PennyLane to a graph object in NetworkX.
 </div><br>

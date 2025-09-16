@@ -25,7 +25,7 @@
 
 ## 4. Unitary synthesis with community detection algorithms (circuit_optimization/unitary_synthesis_*.ipynb)
 <div align="justify"> 
-  <p align='center'><img src="img/community_detection_w_barriers.png" width="600"/></p>
+  <p align='center'><img src="img/community_detection_w_barriers.png" width="500"/></p>
   <p align='center'>Fig. 4. Community detection with barriers</p>
   Currently working on this template-free quantum circuit optimization!
 </div><br>

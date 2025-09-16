@@ -27,6 +27,6 @@
 <div align="justify"> 
   <p align='center'><img src="img/community_detection_w_barriers.png" width="500"/></p>
   <p align='center'>Fig. 4. Community detection with barriers</p>
-  Currently working on this template-free quantum circuit optimization!
+  Currently working on this template-free approach!
 </div><br>
 

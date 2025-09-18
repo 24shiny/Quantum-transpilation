@@ -23,10 +23,10 @@
   As a major example, Qiskit's transpiler converts quantum circuits to graphs, perform the Dijkstra search over them to replace known gate patterns with more efficient ones. Here I present a module to bridge PennyLane and NetworkX, which converts a quantum circuit in PennyLane to a graph object in NetworkX.
 </div><br>
 
-## 4. Unitary synthesis with community detection algorithms (circuit_optimization/unitary_synthesis_*.ipynb)
+## 4. Hardware-independent quantum circuit optimization with the greedy modularity community detection (circuit_optimization/unitary_synthesis_*.ipynb)
 <div align="justify"> 
-  <p align='center'><img src="img/community_detection_w_barriers.png" width="500"/></p>
-  <p align='center'>Fig. 4. Community detection with barriers</p>
+<!--   <p align='center'><img src="img/community_detection_w_barriers.png" width="500"/></p>
+  <p align='center'>Fig. 4. Community detection with barriers</p> -->
   Currently working on this template-free approach!
 </div><br>
 

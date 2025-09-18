@@ -34,4 +34,4 @@
   <p align='center'>Fig. 6. Quantum circuit preprocessed by my strategy. The same as Penny's!</p>
 </div><br>
 
-Further optimization methods will be coming! 😉
+## 5. Further optimization methods will be coming! 😉

@@ -35,10 +35,14 @@
 </div><br>
 
 ### (1) 1-qubit gate optimization
+  <p align='center'><img src="img/1q_opt.png" width="500"/></p>
+  <p align='center'>Fig. 7. 1-qubit gate optimization</p>
 <div align="justify"> 
 </div><br>
 
 ### (2) 2-qubit gate optimization
+  <p align='center'><img src="img/2q_opt.png" width="500"/></p>
+  <p align='center'>Fig. 8.2-qubit gate optimization</p>
 <div align="justify"> 
 </div><br>
 

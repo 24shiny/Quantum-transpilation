@@ -26,12 +26,13 @@
 ## 4. Hardware-independent quantum circuit optimization on graphs (circuit_optimization/hw_independent/)
 <div align="justify"> 
   Most conventional approaches rely on pattern matching, which typically involves the following steps: (1) template preparation, (2) pattern search across quantum circuits, (3) subcircuit replacement, and (4) iteration of steps (2) and (3) until no further matches are     found. Successful optimization hinges on complete templates and efficient search strategies. However, manually crafting substitution rules is time-consuming, and incomplete rule sets can lead to performance degradation. Here, I present a hardware-independent, template-free strategy for quantum circuit optimization. The algorithm leverages the often-overlooked insight that substitution rules are implicitly applied through a series of matrix multiplications. Gates are first grouped by the greedy modularity community detection algorithm, and then consolidated into a single unitary gate. This approach enables effective circuit cleanup as a preprocessing step, streamlining messy designs before further optimization.<br><br>
-</div><br>
+</div>
 
 ### (1) 1-qubit gate optimization
   <p align='center'><img src="img/1q_opt.png" width="500"/></p>
   <p align='center'>Fig. 4. 1-qubit gate optimization</p>
-<div align="justify"> 
+<div align="justify">
+  
 </div><br>
 
 ### (2) 2-qubit gate optimization
@@ -40,9 +41,9 @@
 <div align="justify"> 
 </div><br>
 
-  <p align='center'><img src="img/penny.png" width="500"/></p>
-  <p align='center'>Fig. 6. Quantum circuit preprocessed by PennyLane's compiler</p>
-  <p align='center'><img src="img/my.png" width="500"/></p>
-  <p align='center'>Fig. 7. Quantum circuit preprocessed by my strategy developed so far. The same as Penny's!</p>
+<p align='center'><img src="img/penny.png" width="500"/></p>
+<p align='center'>Fig. 6. Quantum circuit preprocessed by PennyLane's compiler</p>
+<p align='center'><img src="img/my.png" width="500"/></p>
+<p align='center'>Fig. 7. Quantum circuit preprocessed by my strategy developed so far. The same as Penny's!</p>
   
-## 5. Further optimization methods will be coming! 😉
+Further optimization methods will be coming! 😉

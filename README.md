@@ -45,6 +45,9 @@
 <div align="justify"> 
 </div><br>
 
+### (3) 1q- and 2q-gate joint optimization
+
+### (4) Results
 <p align='center'><img src="img/penny.png" width="500"/></p>
 <p align='center'>Fig. 8. Quantum circuit preprocessed by PennyLane's compiler</p>
 <p align='center'><img src="img/my.png" width="500"/></p>

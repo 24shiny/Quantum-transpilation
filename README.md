@@ -39,8 +39,8 @@
 
 ### (2) 2-qubit gate optimization
 <div align="justify">
-  Rather than applying the previous approach for single-qubit gates, I have prepared a different approach for 2-qubit gates: after other gates are removed, each connected component is examined. Once the pair of nodes which share two edges is detected, these are removed from the original gate. Note that this graph algorithm hands the list of gates to remove over to the original circuit!<br>
-</div>
+  Rather than applying the previous approach for single-qubit gates, I have prepared a different approach for 2-qubit gates: after other gates are removed, each connected component is examined. Once the pair of nodes which share two edges is detected, these are removed from the original gate. Note that this graph algorithm hands the list of gates to remove over to the original circuit!
+</div><br>
   <p align='center'><img src="img/2q_opt.png" width="500"/></p>
   <p align='center'>Fig. 6.two-qubit gate optimization</p>
   <p align='center'><img src="img/after_1q_opt.png" width="500"/></p>

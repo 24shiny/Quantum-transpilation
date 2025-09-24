@@ -31,7 +31,7 @@
 ### (1) 1-qubit gate optimization
   <p align='center'><img src="img/1q_opt.png" width="500"/></p>
   <p align='center'>Fig. 4. 1-qubit gate optimization</p>
-  <p align='center'><img src="img/1q_opt.png" width="500"/></p>
+  <p align='center'><img src="img/after_1q_opt.png" width="500"/></p>
   <p align='center'>Fig. 5. After 1-qubit gate optimization</p>
 <div align="justify">
   
@@ -40,7 +40,7 @@
 ### (2) 2-qubit gate optimization
   <p align='center'><img src="img/2q_opt.png" width="500"/></p>
   <p align='center'>Fig. 6.2-qubit gate optimization</p>
-  <p align='center'><img src="img/1q_opt.png" width="500"/></p>
+  <p align='center'><img src="img/after_1q_opt.png" width="500"/></p>
   <p align='center'>Fig. 7. After 2-qubit gate optimization</p>
 <div align="justify"> 
 </div><br>

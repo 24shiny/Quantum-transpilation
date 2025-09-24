@@ -54,4 +54,4 @@
 <p align='center'><img src="img/my.png" width="500"/></p>
 <p align='center'>Fig. 7. Quantum circuit preprocessed by my strategy developed so far. The same as Penny's!</p>
   
-Further optimization methods will be coming! 😉
+## Further optimization methods will be coming! 😉

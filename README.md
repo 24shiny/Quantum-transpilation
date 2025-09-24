@@ -31,18 +31,22 @@
 ### (1) 1-qubit gate optimization
   <p align='center'><img src="img/1q_opt.png" width="500"/></p>
   <p align='center'>Fig. 4. 1-qubit gate optimization</p>
+  <p align='center'><img src="img/1q_opt.png" width="500"/></p>
+  <p align='center'>Fig. 5. After 1-qubit gate optimization</p>
 <div align="justify">
   
 </div><br>
 
 ### (2) 2-qubit gate optimization
   <p align='center'><img src="img/2q_opt.png" width="500"/></p>
-  <p align='center'>Fig. 5.2-qubit gate optimization</p>
+  <p align='center'>Fig. 6.2-qubit gate optimization</p>
+  <p align='center'><img src="img/1q_opt.png" width="500"/></p>
+  <p align='center'>Fig. 7. After 2-qubit gate optimization</p>
 <div align="justify"> 
 </div><br>
 
 <p align='center'><img src="img/penny.png" width="500"/></p>
-<p align='center'>Fig. 6. Quantum circuit preprocessed by PennyLane's compiler</p>
+<p align='center'>Fig. 8. Quantum circuit preprocessed by PennyLane's compiler</p>
 <p align='center'><img src="img/my.png" width="500"/></p>
 <p align='center'>Fig. 7. Quantum circuit preprocessed by my strategy developed so far. The same as Penny's!</p>
   

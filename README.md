@@ -30,22 +30,22 @@
 
 ### (1) 1-qubit gate optimization
   <p align='center'><img src="img/1q_opt.png" width="500"/></p>
-  <p align='center'>Fig. 4. 1-qubit gate optimization</p>
+  <p align='center'>Fig. 4. single-qubit gate optimization</p>
   <p align='center'><img src="img/after_1q_opt.png" width="500"/></p>
-  <p align='center'>Fig. 5. After 1-qubit gate optimization</p>
+  <p align='center'>Fig. 5. After single-qubit gate optimization</p>
 <div align="justify">
   
 </div><br>
 
 ### (2) 2-qubit gate optimization
   <p align='center'><img src="img/2q_opt.png" width="500"/></p>
-  <p align='center'>Fig. 6.2-qubit gate optimization</p>
+  <p align='center'>Fig. 6.two-qubit gate optimization</p>
   <p align='center'><img src="img/after_1q_opt.png" width="500"/></p>
-  <p align='center'>Fig. 7. After 2-qubit gate optimization</p>
+  <p align='center'>Fig. 7. After two-qubit gate optimization</p>
 <div align="justify"> 
 </div><br>
 
-### (3) 1q- and 2q-gate joint optimization
+### (3) single and double- qubit gate joint optimization
 
 ### (4) Results
 <p align='center'><img src="img/penny.png" width="500"/></p>

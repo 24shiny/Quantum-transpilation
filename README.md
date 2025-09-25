@@ -61,7 +61,7 @@
 ### (4) Results
 <p align='center'><img src="img/penny.png" width="500"/></p>
 <p align='center'>Fig. 10. Quantum circuit preprocessed by PennyLane's compiler</p>
-<p align='center'><img src="img/my.png" width="500"/></p>
-<p align='center'>Fig. 11. Quantum circuit preprocessed by my strategy developed so far. The same as Penny's!</p>
+<p align='center', alt='Updated soon!'><img src="img/my.png" width="500"/></p>
+<p align='center'>Fig. 11. Quantum circuit preprocessed by my strategy!</p>
   
 ## Further optimization methods will be coming! 😉

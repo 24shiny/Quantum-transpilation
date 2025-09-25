@@ -59,9 +59,10 @@
   <p align='center'>Fig. 10. Targeted gate groups successfully detected</p>
   
 ### (4) Results
-<p align='center'><img src="img/penny.png" width="500"/></p>
+Updated very soon!
+<!-- <p align='center'><img src="img/penny.png" width="500"/></p>
 <p align='center'>Fig. 10. Quantum circuit preprocessed by PennyLane's compiler</p>
-<p align='center', alt='Updated soon!'><img src="img/my.png" width="500"/></p>
-<p align='center'>Fig. 11. Quantum circuit preprocessed by my strategy!</p>
+<p align='center'><img src="img/my.png" width="500"/></p>
+<p align='center'>Fig. 11. Quantum circuit preprocessed by my strategy!</p> -->
   
 ## Further optimization methods will be coming! 😉

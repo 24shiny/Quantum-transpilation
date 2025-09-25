@@ -48,17 +48,24 @@
 
 ### (3) single and double- qubit gate joint optimization
 <div align="justify">
-  In this stage, I would like to group single- and two-qubit gates on the same wires and see whether they can be optimized. 
+  At this stage, I aim to group single- and two-qubit gates that act on the same wires to assess whether they can be optimized. Figure 8 illustrates an example of such optimization. 
+  <br>
   <p align='center'><img src="img/12q_example.png" width="500"/></p>
   <p align='center'>Fig. 8.Example of joint optimization</p>
-  
+  <br>
+  Gates can be grouped as in Fig 9 with the help of ego graphs. In graph theory, an ego graph refers to a graph centered on a specific node. You can construct it by using <bold>nx.ego_graph(G, center, radius)</bold> in NetworkX.
+  Here the 'radius' denotes how many steps you take from the center node to include further nodes in the ego graph. If you set the radius as zero, the ego node is sole node in the graph!
+  Gates can be grouped, as shown in Fig. 9, using <<bold>ego graphs</bold>. In graph theory, an ego graph is a subgraph centered on a specific node, capturing its local neighborhood (Fig 9). You can construct one yourself in NetworkX using <i>nx.ego_graph(G, center, radius)</i>. Here the radius parameter determines how many steps away from the center node to include neighboring nodes (note that it is just like k-nearest neighbors). If you set the radius to zero, the ego graph will contain only the center node itself!
+  <br>
+  <p align='center'><img src="img/ego_graph.png" width="500"/></p>
+  <p align='center'>Fig. 9. Evolution of the ego graph of a CZ gate</p>
+  <br>
+  One limitation of ego graph evolution is that it expands uniformly in all directions, regardless of contextual relevance. To address this, I relax the node selection criteria and allow the evolution to proceed as long as not all neighboring     nodes deviate from the center node's wire set. Gates that violate this condition are subsequently removed from their subgraphs, and unique subgraphs are identified using graph isomorphism. This process reveals subgraphs with potential for       optimization; these groups of nodes are highlighted in red in Fig. 10, and their corresponding graph representations are shown in Fig. 12.
 </div><br>
   <p align='center'><img src="img/12q_opt.png" width="500"/></p>
-  <p align='center'>Fig. 9.Gate groups in consideration</p>
+  <p align='center'>Fig. 10.Gate groups in consideration</p>
   <p align='center'><img src="img/12q_opt_graph.png" width="500"/></p>
-  <p align='center'>Fig. 10.Gate groups detected on the graph</p>
-  <p align='center'><img src="img/ego_graph.png" width="500"/></p>
-  <p align='center'>Fig. 11. Evolution of the ego graph of a CZ gate</p>
+  <p align='center'>Fig. 11.Gate groups detected on the graph</p>
   <p align='center'><img src="img/subgraphs_1.png" width="500"/></p>
   <p align='center'>Fig. 12. Targeted gate groups successfully detected</p>
   

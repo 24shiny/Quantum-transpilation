@@ -57,8 +57,8 @@
   <p align='center'>Fig. 9.Gate groups detected on the graph</p>
   <p align='center'><img src="img/ego_graph.png" width="500"/></p>
   <p align='center'>Fig. 10. Evolution of the ego graph of a CZ gate</p>
-  <!-- <p align='center'><img src="img/subgraphs.png" width="500"/></p>
-  <p align='center'>Fig. 11. Targeted gate groups successfully detected</p> -->
+  <p align='center'><img src="img/subgraphs.png" width="500"/></p>
+  <p align='center'>Fig. 11. Targeted gate groups successfully detected</p>
   
 ### (4) Results
 Updated very soon!

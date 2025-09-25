@@ -48,10 +48,20 @@
 
 ### (3) single and double- qubit gate joint optimization
 
+<div align="justify">
+  
+</div><br>
+  <p align='center'><img src="img/12q_opt.png" width="500"/></p>
+  <p align='center'>Fig. 8.Gate groups in consideration</p>
+  <p align='center'><img src="img/ego_graph.png" width="500"/></p>
+  <p align='center'>Fig. 9. Evolution of the ego graph of a CZ gate</p>
+  <p align='center'><img src="img/subgraphs.png" width="500"/></p>
+  <p align='center'>Fig. 10. Targeted gate groups successfully detected</p>
+  
 ### (4) Results
 <p align='center'><img src="img/penny.png" width="500"/></p>
-<p align='center'>Fig. 8. Quantum circuit preprocessed by PennyLane's compiler</p>
+<p align='center'>Fig. 10. Quantum circuit preprocessed by PennyLane's compiler</p>
 <p align='center'><img src="img/my.png" width="500"/></p>
-<p align='center'>Fig. 7. Quantum circuit preprocessed by my strategy developed so far. The same as Penny's!</p>
+<p align='center'>Fig. 11. Quantum circuit preprocessed by my strategy developed so far. The same as Penny's!</p>
   
 ## Further optimization methods will be coming! 😉

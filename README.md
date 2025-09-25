@@ -47,18 +47,20 @@
   <p align='center'>Fig. 7. After two-qubit gate optimization</p>
 
 ### (3) single and double- qubit gate joint optimization
-
 <div align="justify">
+  In this stage, I would like to group single- and two-qubit gates on the same wires and see whether they can be optimized. 
+  <p align='center'><img src="img/12q_example.png" width="500"/></p>
+  <p align='center'>Fig. 8.Example of joint optimization</p>
   
 </div><br>
   <p align='center'><img src="img/12q_opt.png" width="500"/></p>
-  <p align='center'>Fig. 8.Gate groups in consideration</p>
+  <p align='center'>Fig. 9.Gate groups in consideration</p>
   <p align='center'><img src="img/12q_opt_graph.png" width="500"/></p>
-  <p align='center'>Fig. 9.Gate groups detected on the graph</p>
+  <p align='center'>Fig. 10.Gate groups detected on the graph</p>
   <p align='center'><img src="img/ego_graph.png" width="500"/></p>
-  <p align='center'>Fig. 10. Evolution of the ego graph of a CZ gate</p>
+  <p align='center'>Fig. 11. Evolution of the ego graph of a CZ gate</p>
   <p align='center'><img src="img/subgraphs_1.png" width="500"/></p>
-  <p align='center'>Fig. 11. Targeted gate groups successfully detected</p>
+  <p align='center'>Fig. 12. Targeted gate groups successfully detected</p>
   
 ### (4) Results
 Updated very soon!

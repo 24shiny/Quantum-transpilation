@@ -55,7 +55,7 @@
   <br>
   Gates can be grouped as in Fig 9 with the help of ego graphs. In graph theory, an ego graph refers to a graph centered on a specific node. You can construct it by using <bold>nx.ego_graph(G, center, radius)</bold> in NetworkX.
   Here the 'radius' denotes how many steps you take from the center node to include further nodes in the ego graph. If you set the radius as zero, the ego node is sole node in the graph!
-  Gates can be grouped, as shown in Fig. 9, using <<bold>ego graphs</bold>. In graph theory, an ego graph is a subgraph centered on a specific node, capturing its local neighborhood (Fig 9). You can construct one yourself in NetworkX using <i>nx.ego_graph(G, center, radius)</i>. Here the radius parameter determines how many steps away from the center node to include neighboring nodes (note that it is just like k-nearest neighbors). If you set the radius to zero, the ego graph will contain only the center node itself!
+  Gates can be grouped, as shown in Fig. 9, using <bold>ego graphs</bold>. In graph theory, an ego graph is a subgraph centered on a specific node, capturing its local neighborhood (Fig 9). You can construct one yourself in NetworkX using <i>nx.ego_graph(G, center, radius)</i>. Here the radius parameter determines how many steps away from the center node to include neighboring nodes (note that it is just like k-nearest neighbors). If you set the radius to zero, the ego graph will contain only the center node itself!
   <br><br>
   <p align='center'><img src="img/ego_graph.png" width="500"/></p>
   <p align='center'>Fig. 9. Evolution of the ego graph of a CZ gate</p>

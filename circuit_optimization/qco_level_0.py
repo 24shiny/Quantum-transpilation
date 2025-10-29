@@ -1,0 +1,168 @@
+# basics
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import re
+# penny
+import pennylane as qml
+# my 
+from penny_to_graph import Penny_to_Graph
+
+
+q1 = ['Hadamard', 'PauliX', 'RY', 'U1', 'U2'] 
+q2 = ['CNOT', 'CZ']
+
+# visualization of a circuit and its specification
+def summary_penny(circuit):
+    obj = qml.specs(circuit)()['resources']
+    temp = qml.specs(circuit)()['resources'].gate_types # dict
+    summary =  [obj.num_wires, obj.num_gates, obj.gate_sizes[1], temp['CZ']+temp['CNOT'], temp['QubitUnitary'], obj.depth]
+    df = pd.DataFrame(summary, index=['num_qubit', 'num_gate', 'num_1q_gate', 'num_2q_gate', 'unitary','depth'])
+    print(df)
+
+def show_circuit(circuit):
+    qml.draw_mpl(circuit, style='pennylane')()
+    plt.show()
+    summary_penny(circuit) 
+
+# optimization methods
+def extract_info_from_qnode(qnode):
+    """Extracts gate info from a QNode by tracing its quantum function."""
+    quantum_fn = qnode.func
+
+    with qml.tape.QuantumTape() as tape:
+        quantum_fn()
+
+    gate_info = []
+    for op in tape.operations:
+        safe_params = []
+        for p in op.parameters:
+            try:
+                safe_params.append(float(p))  
+            except (TypeError, ValueError):
+                safe_params.append(np.array(p).tolist()) 
+
+        gate_info.append({
+            "name": op.name,
+            "wires": list(op.wires),
+            "params": safe_params
+        })
+    
+    return gate_info
+
+def info_to_qnode(circuit_info):
+    dev = qml.device('default.qubit')
+    def circuit():
+        for gate in circuit_info:
+            name = gate['name']
+            wires = gate['wires']
+            params = gate['params']
+            if name == 'Hadamard':
+                qml.Hadamard(wires=wires[0])
+            elif name == 'PauliX':
+                qml.PauliX(wires=wires[0])
+            elif name == 'U2':
+                qml.U2(params[0], params[1], wires=wires[0])
+            elif name == 'CNOT':
+                qml.CNOT(wires=wires)            
+            elif name == 'CZ':
+                qml.CZ(wires=wires)
+            elif name == 'QubitUnitary':
+                matrix = np.array(params[0])
+                qml.QubitUnitary(matrix, wires=wires)
+            elif name == 'U3':
+                qml.Rot(params[0], params[1], params[2], wires=wires)
+            else:
+                raise ValueError(f"Unsupported gate: {name}")
+        return qml.state()
+    qnode = qml.QNode(circuit, dev)
+    return qnode
+
+def optimization_prep(qnode):
+    pg = Penny_to_Graph(qnode)
+    G = pg.G
+    circuit_info = extract_info_from_qnode(qnode)
+    return G, circuit_info
+
+def community_sort(G, communities, barriers):
+    def extract_index(name):
+        match = re.search(r'_(\d+)$', name)
+        return int(match.group(1)) if match else None
+
+    all_communities = communities + [{barrier} for barrier in barriers]
+
+    node_to_original = {}
+    for i, community in enumerate(all_communities):
+        for node in community:
+            node_to_original[node] = i
+
+    sorted_nodes = sorted(G.nodes(), key=extract_index)
+    original_to_new = {}
+    node_to_new = {}
+    new_index = 0
+
+    for node in sorted_nodes:
+        original = node_to_original[node]
+        if original not in original_to_new:
+            original_to_new[original] = new_index
+            new_index += 1
+        node_to_new[node] = original_to_new[original]
+
+    for node in G.nodes:
+        G.nodes[node]['community'] = node_to_new[node]
+
+    sorted_communities = [set() for _ in range(new_index)]
+    for node, idx in node_to_new.items():
+        sorted_communities[idx].add(node)
+
+    return G, sorted_communities
+
+def subcircuit_syntehsis_prep(G, communities, circuit_info):
+    num_community = len(communities)
+    
+    subcircuit_idx_arr = []
+    for i in range(num_community):
+        temp_gate = [n for n in G.nodes if G.nodes[n].get('community') == i]
+        temp_gate = [item for item in temp_gate if item]
+        temp_com_label = [int(g.split('_')[1]) for g in temp_gate]
+        subcircuit_idx_arr.append(temp_com_label)
+
+    community_circuit_info = []
+    for idx_list in subcircuit_idx_arr:
+        target = [circuit_info[j] for j in idx_list]
+        if target == []:
+            continue
+        community_circuit_info.append(target)
+    return community_circuit_info
+
+def wire_range(gate_dic):
+    wire__list = [elem['wires'] for elem in gate_dic]
+    flat = [item for sublist in wire__list for item in sublist]
+    if min(flat)==max(flat):
+        return [min(flat)]
+    else:
+        return [min(flat), max(flat)]
+    
+def info_to_qnode_matrix(circuit_info):
+    with qml.tape.QuantumTape() as tape:
+        for gate in circuit_info:
+            name = gate['name']
+            wires = gate['wires']
+            params = gate['params']
+            if name == 'Hadamard':
+                qml.Hadamard(wires=wires[0])
+            elif name == 'PauliX':
+                qml.PauliX(wires=wires[0])
+            elif name == 'U2':
+                qml.U2(params[0], params[1], wires=wires[0])
+            elif name == 'CNOT':
+                qml.CNOT(wires=wires)            
+            elif name == 'CZ':
+                qml.CZ(wires=wires)
+            elif name == 'QubitUnitary':
+                matrix = np.array(params[0])
+                qml.QubitUnitary(matrix, wires=wires)
+            else:
+                raise ValueError(f"Unsupported gate: {name}")
+    wires = wire_range(circuit_info)
+    return qml.matrix(tape, wire_order=wires), wires

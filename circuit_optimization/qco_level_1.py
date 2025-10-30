@@ -2,29 +2,24 @@ from qco_level_0 import *
 from gate_determination import *
 from collections import defaultdict
 import networkx as nx
+from qco_spec_table import make_spec_table, show_circuit
 
 def optimization_level_1(qnode):
     G, circuit_info = optimization_prep(qnode)
-
-    # community detection excluding barriers
     G, communities = graph_alg_level_1(G, barriers=['QubitUnitary'] + q2)
     community_circuit_info = subcircuit_syntehsis_level_1(G, communities, circuit_info)
     qnode_q1 = info_to_qnode(community_circuit_info)
-
-    # print results
-    print(summary_penny(qnode_q1))
-    qml.draw_mpl(qnode_q1)()
-    plt.show()
+    
+    print(make_spec_table(qnode, qnode_q1))
+    show_circuit(qnode_q1)
 
     return qnode_q1
 
 def graph_alg_level_1(G, barriers):
-    # set barriers and exclude them
     barriers = [node for node in G.nodes if any(gate in node for gate in barriers)]
     barrier_set = set(barriers)
 
     G_sub = G.subgraph([node for node in G.nodes if node not in barrier_set])
-    # base_communities = list(nx.community.greedy_modularity_communities(G_sub))
     base_communities = list(nx.connected_components(G_sub.to_undirected()))
 
     communities = []
@@ -53,7 +48,7 @@ def subcircuit_syntehsis_level_1(G, communities, circuit_info):
 
     return community_circuit_info
 
-def determine_1q_gate(params): # can be improved as the next function
+def determine_1q_gate(params):
     if is_identity(params):
         return 'I'
     elif is_matrix(params, H_matrix):

@@ -4,17 +4,14 @@ import networkx as nx
 from qiskit.transpiler.passes.synthesis import UnitarySynthesis
 from qiskit.transpiler import PassManager
 from qiskit import QuantumCircuit
+from qco_spec_table import make_spec_table, show_circuit
 
 def optimization_level_3_qiskit(qnode):
     G, circuit_info = optimization_prep(qnode)  
-    
     G, communities = graph_alg_level_3(G, barriers=['QubitUnitary']) # working on
     qnode_q3 = subcircuit_syntehsis_level_3_qiskit(G, communities, circuit_info)
-
-    # print results
-    print(summary_penny(qnode_q3))
-    qml.draw_mpl(qnode_q3)()
-    plt.show()
+    print(make_spec_table(qnode, qnode_q3))
+    show_circuit(qnode_q3)
     return qnode
 
 def graph_alg_level_3(G, barriers):
@@ -25,7 +22,6 @@ def graph_alg_level_3(G, barriers):
     communities = get_communities(G_sub)
 
     barriers = [n for n in list(G.nodes()) if n not in set().union(*communities)]
-
     for barrier in barriers:
         communities.append({barrier})
 
@@ -89,8 +85,7 @@ def community_topological_sort(G, communities):
         if cu is not None and cv is not None and cu != cv:
             meta_graph.add_edge(cu, cv)
 
-    # topological sort
-    try:
+    try: # topological sort
         sorted_indices = list(nx.topological_sort(meta_graph))
     except nx.NetworkXUnfeasible:
         raise ValueError("Community dependencies contain cycles — cannot sort.")

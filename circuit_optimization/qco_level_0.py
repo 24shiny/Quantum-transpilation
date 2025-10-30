@@ -1,29 +1,13 @@
 # basics
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 import re
 # penny
 import pennylane as qml
 # my 
 from penny_to_graph import Penny_to_Graph
 
-
 q1 = ['Hadamard', 'PauliX', 'RY', 'U1', 'U2'] 
 q2 = ['CNOT', 'CZ']
-
-# visualization of a circuit and its specification
-def summary_penny(circuit):
-    obj = qml.specs(circuit)()['resources']
-    temp = qml.specs(circuit)()['resources'].gate_types # dict
-    summary =  [obj.num_wires, obj.num_gates, obj.gate_sizes[1], temp['CZ']+temp['CNOT'], temp['QubitUnitary'], obj.depth]
-    df = pd.DataFrame(summary, index=['num_qubit', 'num_gate', 'num_1q_gate', 'num_2q_gate', 'unitary','depth'])
-    print(df)
-
-def show_circuit(circuit):
-    qml.draw_mpl(circuit, style='pennylane')()
-    plt.show()
-    summary_penny(circuit) 
 
 # optimization methods
 def extract_info_from_qnode(qnode):

@@ -2,24 +2,19 @@ from qco_level_0 import *
 from gate_determination import *
 from collections import defaultdict
 import networkx as nx
+from qco_spec_table import make_spec_table, show_circuit
 
 def optimization_level_2(qnode):
     G, circuit_info = optimization_prep(qnode)
-
-    # community detection excluding barriers
     G, communities = graph_alg_level_2(G, barriers=['QubitUnitary'] + q1)
     community_circuit_info = subcircuit_syntehsis_level_2(G, communities, circuit_info)
     qnode_q2 = info_to_qnode(community_circuit_info)
-
-    # print results
-    print(summary_penny(qnode_q2))
-    qml.draw_mpl(qnode_q2)()
-    plt.show()
+    print(make_spec_table(qnode, qnode_q2))
+    show_circuit(qnode_q2)
 
     return qnode_q2
 
 def graph_alg_level_2(G, barriers):
-    # set barriers and exclude them
     barriers = [node for node in G.nodes if any(gate in node for gate in barriers)]
     barrier_set = set(barriers)
 
@@ -27,7 +22,6 @@ def graph_alg_level_2(G, barriers):
         check = all(item in barrier_set for item in shared_nodes)
         return check
     
-    # remove shared 1-q neighbors
     edge_to_remove = []
     for e in G.edges():
         gate_2q = [n for n, attr in G.nodes(data=True) if attr.get('num_q') == 2]
